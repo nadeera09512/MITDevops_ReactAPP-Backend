@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    react: reactappbackend
+  name: reactappbackend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      react: reactappbackend
+  template:
+    metadata:
+      labels:
+        react: reactappbackend
+    spec:
+      containers:
+      - image: nadeera94/reactappbackend:v1.0
+        name: reactappbackend
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 4000
+        
+

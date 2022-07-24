@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: reactbackend-service
+spec:
+  type: ClusterIP
+  selector:
+    react: reactappbackend
+  ports:
+    - port: 4000
+      targetPort: 4000
+     # nodePort: 30010

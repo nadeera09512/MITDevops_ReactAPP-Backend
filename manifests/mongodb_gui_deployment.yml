@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    gui: mongodb
+  name: mongodbgui
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      gui: mongodb
+  template:
+    metadata:
+      labels:
+        gui: mongodb
+    spec:
+      containers:
+      - image: mongo-express:latest
+        name: mongo-express
+        ports:
+        - containerPort: 8081
+        env:
+        - name: ME_CONFIG_MONGODB_ADMINUSERNAME
+          value: mongo
+        - name: ME_CONFIG_MONGODB_ADMINPASSWORD
+          value: mongo
+        - name: ME_CONFIG_MONGODB_SEVER
+          value: mongodb-service
+        - name: ME_CONFIG_MONGODB_ENABLE_ADMIN
+          value: "true"
+        - name: ME_CONFIG_MONGODB_URL
+          value: mongodb://mongo:mongo@mongodb-service:27017
