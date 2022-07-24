@@ -5,4 +5,4 @@ COPY package*.json ./
 RUN npm ci
 COPY . .
 EXPOSE 4000
-CMD ["nodemon","server.js"]
+CMD ["node","server.js"]
