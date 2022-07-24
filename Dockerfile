@@ -1,6 +1,8 @@
-FROM node:16
+FROM alpine
+RUN apk add --update nodejs npm
 WORKDIR /app
-COPY ./* /app
-RUN npm install
+COPY package*.json ./
+RUN npm ci
+COPY . .
 EXPOSE 4000
 CMD ["nodemon","server.js"]
