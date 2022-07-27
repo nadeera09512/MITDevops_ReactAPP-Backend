@@ -30,3 +30,5 @@ spec:
           value: "true"
         - name: ME_CONFIG_MONGODB_URL
           value: mongodb://mongo:mongo@mongodb-service:27017
+        - name: ME_CONFIG_SITE_BASEURL
+          value: /mongoAdmin
